@@ -26,7 +26,7 @@ GridLayout {
     
     Button {
         id: button2
-        text: qsTr("Press Me 2")
+        text: qsTr("Press Mee 2")
     }
     
     TextArea {
