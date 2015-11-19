@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>MainForm.ui.qml</file>
+        <file>MyItem.qml</file>
+        <file>GridLayout1.qml</file>
+        <file>MyRotationAnimation.qml</file>
+    </qresource>
+</RCC>
