@@ -52,6 +52,18 @@ ApplicationWindow {
             //TODO no confirmation needed?
             Column {
                 Label { text: "TEXT" }
+                KolorowaKolumna {
+                    id: kolumna
+                }
+                Button {
+                    text: "Pierwszy kolor"
+                    onClicked: {kolumna.numerKoloru=0;}
+                }
+                Button {
+                    text: "Ustaw zielony"
+                    onClicked: kolumna.kolorowyKwadrat.color="green"
+                }
+
                 MouseArea {
                     Text {
                         text: stack.depth
