@@ -49,6 +49,7 @@ ApplicationWindow {
 
         Component {
             id: view
+            //TODO no confirmation needed?
             Column {
                 Label { text: "TEXT" }
                 MouseArea {
