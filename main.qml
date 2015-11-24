@@ -26,11 +26,16 @@ ApplicationWindow {
             MenuItem {
                 text: "OpenDefault"
                 //TODO taz
-                onTriggered: stack.push(view)
+                onTriggered: stack.push({"item":view, "replace":replaceChecked.checked})
             }
             MenuItem {
                 text: "Back"
                 onTriggered: stack.pop()
+            }
+            MenuItem {
+                id: replaceChecked
+                text: "Replace"
+                checkable: true
             }
         }
         Menu {
