@@ -21,5 +21,5 @@ Column {
         onClicked: {
             kolumna.numerKoloru=(kolumna.numerKoloru+1)%kolumna.kolory.length
         }
-    }
+    }//TODO somethinf more
 }

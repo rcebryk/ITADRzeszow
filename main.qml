@@ -36,7 +36,7 @@ ApplicationWindow {
     }
 
     statusBar: StatusBar {
-        RowLayout {
+        RowLayout {//FIXME dfdfdfd
             anchors.fill: parent
             Label { text: "Stack size: "+stack.depth }
         }
