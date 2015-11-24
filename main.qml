@@ -123,10 +123,18 @@ ApplicationWindow {
             id: anotherBlue
             Rectangle {
                 Label {
+                    id: dateTimeLabel
                     anchors.centerIn: parent
                     text: ""+currentDateTime
                     color: "yellow"
                 }
+                Label {
+                    anchors.top: dateTimeLabel.bottom
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: worker.name
+                    color: "yellow"
+                }
+
                 color: "blue"
                 width: 100
                 height: 100
