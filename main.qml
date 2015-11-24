@@ -122,6 +122,11 @@ ApplicationWindow {
         Component {
             id: anotherBlue
             Rectangle {
+                Label {
+                    anchors.centerIn: parent
+                    text: ""+currentDateTime
+                    color: "yellow"
+                }
                 color: "blue"
                 width: 100
                 height: 100
