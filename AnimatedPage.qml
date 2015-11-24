@@ -21,7 +21,7 @@ Item {
             properties: "rotation"
         }
 
-        NumberAnimation {
+        PropertyAnimation {
             target: startButton
             property: "width"
             duration: 200
@@ -29,7 +29,7 @@ Item {
             to: 2*startButton.width
         }
 
-        NumberAnimation {
+        PropertyAnimation {
             target: startButton
             property: "width"
             duration: 200
@@ -43,7 +43,7 @@ Item {
             properties: "rotation"
         }
 
-        NumberAnimation {
+        PropertyAnimation {
             target: startButton
             property: "height"
             duration: 200
@@ -51,7 +51,7 @@ Item {
             to: 2*startButton.height
         }
 
-        NumberAnimation {
+        PropertyAnimation {
             target: startButton
             property: "height"
             duration: 200
