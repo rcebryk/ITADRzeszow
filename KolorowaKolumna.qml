@@ -6,20 +6,32 @@ import QtQuick.Layouts 1.0
 
 Column {
     id: kolumna
+    z: 1
     property int numerKoloru: 0
-    property var kolory: ["yellow", "red", "blue"]
+    property var kolory: ["yellow", "red", "blue", "purple"]
     property alias kolorowyKwadrat: kolorowyKwadrat
-    
+
     Rectangle {
         id: kolorowyKwadrat
         color: kolumna.kolory[kolumna.numerKoloru]
         height: 50
-        width: 50
+        width: parent.width
     }
     Button {
         text: "Zmien kolor"
         onClicked: {
             kolumna.numerKoloru=(kolumna.numerKoloru+1)%kolumna.kolory.length
         }
-    }//TODO somethinf more
+        width: parent.width
+    }
+    states: [
+        State {
+            name: "ColorMatched"
+            PropertyChanges {
+                target: kolorowyKwadrat
+                color: kolumna.kolory[kolumna.numerKoloru]
+            }
+
+        }
+    ]//TODO somethinf more
 }

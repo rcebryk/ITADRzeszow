@@ -33,6 +33,13 @@ ApplicationWindow {
                 onTriggered: stack.pop()
             }
         }
+        Menu {
+            title: "InnerPage"
+            MenuItem {
+                text: "Przywróć binding"
+                onTriggered: stack.recoverInnerBing()
+            }
+        }
     }
 
     statusBar: StatusBar {
@@ -46,35 +53,45 @@ ApplicationWindow {
         id: stack
         anchors.fill: parent
         initialItem: anotherBlue
+        signal recoverInnerBing
 
         Component {
             id: view
-            //TODO no confirmation needed?
             Column {
-                Label { text: "TEXT" }
+                Component.onCompleted: stack.recoverInnerBing.connect(kolumna.recover)
                 KolorowaKolumna {
                     id: kolumna
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    function recover() {
+                        console.log('Recover called');
+                        if(kolumna)
+                            kolumna.state="ColorMatched";
+                    }
+                    Component.onCompleted: kolumna.kolory.push("orange");
                 }
                 Button {
                     text: "Pierwszy kolor"
                     onClicked: {kolumna.numerKoloru=0;}
+                    anchors {
+                        left: parent.left
+                        right: parent.horizontalCenter
+                    }
                 }
                 Button {
                     text: "Ustaw zielony"
-                    onClicked: kolumna.kolorowyKwadrat.color="green"
-                }
-
-                MouseArea {
-                    Text {
-                        text: stack.depth
-                        anchors.centerIn: parent
+                    onClicked: {
+                        kolumna.kolorowyKwadrat.color="green";
+                        kolumna.state="default";
                     }
-                    //FIXME poprawka
-                    onClicked: stack.push(view)
+                    anchors {
+                        left: parent.horizontalCenter
+                        right: parent.right
+                    }
+
                 }
             }
         }
-
         Component {
             id: anotherBlue
             Rectangle {
@@ -90,5 +107,6 @@ ApplicationWindow {
                 color: "red"
             }
         }
+
     }
 }
