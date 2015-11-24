@@ -72,23 +72,45 @@ ApplicationWindow {
                 }
                 Button {
                     text: "Pierwszy kolor"
+                    id: pierwszyKolor
                     onClicked: {kolumna.numerKoloru=0;}
                     anchors {
                         left: parent.left
                         right: parent.horizontalCenter
                     }
                 }
-                Button {
-                    text: "Ustaw zielony"
-                    onClicked: {
-                        kolumna.kolorowyKwadrat.color="green";
-                        kolumna.state="default";
-                    }
-                    anchors {
-                        left: parent.horizontalCenter
-                        right: parent.right
+                Item {
+                    width: parent.width
+                    height: pierwszyKolor.height
+                    Button {
+                        text: "Ustaw zielony"
+                        onClicked: {
+                            kolumna.kolorowyKwadrat.color="green";
+                            kolumna.state="default";
+                        }
+                        anchors {
+                            left: parent.horizontalCenter
+                            right: parent.right
+                            top: parent.top
+                            bottom: parent.bottom
+                        }
+
                     }
 
+                    Button {
+                        text: "Otwórz animacje"
+                        property Component animatedPage: AnimatedPage {}
+                        onClicked: {
+                            stack.push(animatedPage);
+                        }
+                        anchors {
+                            left: parent.left
+                            right: parent.horizontalCenter
+                            top: parent.top
+                            bottom: parent.bottom
+                        }
+
+                    }
                 }
             }
         }
