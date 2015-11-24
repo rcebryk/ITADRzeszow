@@ -7,7 +7,7 @@ class WorkerClass : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(QString name READ getName)
+    Q_PROPERTY(QString name READ getName CONSTANT)
 
 public:
     explicit WorkerClass(QString name, QObject *parent = 0);
