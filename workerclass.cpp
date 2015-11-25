@@ -26,13 +26,12 @@ QString WorkerClass::getName()
 
 void WorkerClass::start()
 {
-//    if( myThread.isRunning()) {
-//        myThread.terminate();
-//        myThread.wait();
-//    }
-//    else
-//        myThread.start();
-    myThread.processTasks();
+    if( myThread.isRunning()) {
+        myThread.terminate();
+        myThread.wait();
+    }
+    else
+        myThread.start();
 }
 
 void WorkerClass::threadTimeout(int newTimeout)
