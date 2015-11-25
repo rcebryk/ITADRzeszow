@@ -13,10 +13,6 @@ ApplicationWindow {
             title: "WindowStack"
             MenuItem {
                 text: "OpenRed"
-                /*!
-                  @NOTE: nottt
-                  */
-                //NOTE dupa
                 onTriggered: stack.push(anotherRed)
             }
             MenuItem {
@@ -25,7 +21,6 @@ ApplicationWindow {
             }
             MenuItem {
                 text: "OpenDefault"
-                //TODO taz
                 onTriggered: stack.push({"item":view, "replace":replaceChecked.checked})
             }
             MenuItem {
@@ -48,7 +43,7 @@ ApplicationWindow {
     }
 
     statusBar: StatusBar {
-        RowLayout {//FIXME dfdfdfd
+        RowLayout {
             anchors.fill: parent
             Label { text: "Stack size: "+stack.depth }
         }
@@ -64,14 +59,13 @@ ApplicationWindow {
             id: view
             Column {
                 Component.onCompleted: stack.recoverInnerBing.connect(kolumna.recover)
+                Component.onDestruction: stack.recoverInnerBing.disconnect(kolumna.recover)
                 KolorowaKolumna {
                     id: kolumna
                     anchors.left: parent.left
                     anchors.right: parent.right
                     function recover() {
-                        console.log('Recover called');
-                        if(kolumna)
-                            kolumna.state="ColorMatched";
+                        kolumna.state="ColorMatched";
                     }
                     Component.onCompleted: kolumna.kolory.push("orange");
                 }
