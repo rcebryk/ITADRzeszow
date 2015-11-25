@@ -2,23 +2,29 @@
 #define WORKERCLASS_H
 
 #include <QObject>
+#include "mythread.h"
 
 class WorkerClass : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(QString name READ getName CONSTANT)
+    Q_PROPERTY(QString name READ getName NOTIFY nameChanged)
 
 public:
     explicit WorkerClass(QString name, QObject *parent = 0);
+    ~WorkerClass();
     QString getName();
 
+    Q_INVOKABLE void start();
+
 signals:
-
-public slots:
-
+    void nameChanged();
+private slots:
+    void threadTimeout(int newTimeout);
 private:
     QString name;
+    MyThread myThread;
+    int lastTimeout;
 };
 
 #endif // WORKERCLASS_H
