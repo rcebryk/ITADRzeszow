@@ -129,11 +129,19 @@ ApplicationWindow {
                     color: "yellow"
                 }
                 Label {
+                    id: workerLabel
                     anchors.top: dateTimeLabel.bottom
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: worker.name
                     color: "yellow"
                 }
+                Button {
+                    anchors.top: workerLabel.bottom
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: "START"
+                    onClicked: worker.start()
+                }
+
 
                 color: "blue"
                 width: 100

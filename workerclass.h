@@ -19,6 +19,7 @@ public:
 
 signals:
     void nameChanged();
+    void startSignal();
 private slots:
     void threadTimeout(int newTimeout);
 private:

@@ -5,9 +5,8 @@ WorkerClass::WorkerClass(QString name, QObject *parent)
     , name(name)
     , lastTimeout(-1)
 {
-    myThread.setDuration(1000);
+    myThread.setDuration(5);
     connect(&myThread,SIGNAL(updatingTimeout(int)),SLOT(threadTimeout(int)));
-    start();
 }
 
 WorkerClass::~WorkerClass()
@@ -27,7 +26,13 @@ QString WorkerClass::getName()
 
 void WorkerClass::start()
 {
-    myThread.start();
+//    if( myThread.isRunning()) {
+//        myThread.terminate();
+//        myThread.wait();
+//    }
+//    else
+//        myThread.start();
+    myThread.processTasks();
 }
 
 void WorkerClass::threadTimeout(int newTimeout)

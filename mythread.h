@@ -12,6 +12,8 @@ class MyThread : public QThread
 public:
     void setDuration(int duration);
 
+public slots:
+    void processTasks();
 signals:
     void updatingTimeout(int passedSeconds);
 private:

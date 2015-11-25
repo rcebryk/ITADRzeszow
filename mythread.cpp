@@ -1,9 +1,12 @@
 #include "mythread.h"
-#include <QDebug>
 
 void MyThread::run()
 {
-    qDebug() << "RUN STARTED";
+    this->processTasks();
+}
+
+void MyThread::processTasks()
+{
     for(int i=0; i<duration;i++) {
         emit updatingTimeout(i);
         sleep(1);
