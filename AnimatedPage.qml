@@ -11,6 +11,14 @@ Item {
         width: 50
     }
 
+    Button {
+        anchors.top: parent.top
+        anchors.horizontalCenter: parent.horizontalCenter
+        text: "Start action"
+        onClicked: worker.start();
+
+    }
+
     SequentialAnimation {
         id: buttonAnimation
         loops: Animation.Infinite
@@ -24,7 +32,7 @@ Item {
         PropertyAnimation {
             target: startButton
             property: "width"
-            duration: 200
+            duration: 2000
             easing.type: Easing.InOutQuad
             to: 2*startButton.width
         }
